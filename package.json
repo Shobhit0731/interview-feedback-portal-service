@@ -1,0 +1,24 @@
+{
+  "name": "interview-feedback-portal-service",
+  "version": "1.0.0",
+  "description": "express",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "npm-global": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shobhit0731/interview-feedback-portal-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shobhit0731/interview-feedback-portal-service/issues"
+  },
+  "homepage": "https://github.com/Shobhit0731/interview-feedback-portal-service#readme"
+}
