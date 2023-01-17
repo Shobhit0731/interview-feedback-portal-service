@@ -1,10 +1,20 @@
-const express = require("express");
+import express from "express";
 const app = express();
 
-app.get("/", (request, response) => {
-    response.send("Hi there");
-});
+// app.use(express.json())
 
-app.listen(3000, () => {
-    console.log("Listen on the port 3000...");
-});
+// // Routes import
+
+// // const product = require("./routes/productRoute");
+
+// app.get("/", (request, response) => {
+//     response.send("Hi there");
+// });
+
+// app.listen(9000, () => {
+//     console.log("Listen on the port 9000...");
+// });
+
+// // app.use("/api/v1/", product)
+
+export default app;
