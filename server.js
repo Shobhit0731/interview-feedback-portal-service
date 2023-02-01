@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import configuration from "./config/configuration.js";
 import app from "./app.js";
 import connectDataBase from "./libs/database.js";
+import  bodyParser from 'body-parser';
+// import userRoute from "./api/route/user.js";
 
 export default class Server {
   constructor(configuration) {
@@ -31,8 +33,13 @@ export default class Server {
   }
 }
 
+
+
 const server = new Server(configuration);
 server.uncaughtExceptionError();
 server.startServer();
 server.unhandledRejectionError();
 connectDataBase();
+
+
+// app.use('./user', userRoute);

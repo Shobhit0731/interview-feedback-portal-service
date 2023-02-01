@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { UserAuth } from "../Model/userAuthentication/IUserAuthModel.js";
 import { mockUser } from "../Model/userAuthentication/UserAuthModel.js";
 
+
 const connectDataBase = () => {
   mongoose
     .connect(process.env.MONGO_URI, {

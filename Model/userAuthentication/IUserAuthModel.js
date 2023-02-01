@@ -23,6 +23,10 @@ const userAuthSchema = new Schema({
     type: String,
     required: true,
   },
+  // resetLink: {
+  //   type: String,
+  //   required:true
+  // }
 });
 
 

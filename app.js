@@ -1,20 +1,34 @@
 import express from "express";
+import userRoute from "./api/route/user.js";
+import  bodyParser from 'body-parser';
+import cors from 'cors'
+////////////////////////////////////
+// import {graphqlHttp} from 'express-graphql';
+// import schema from './schema'
+
+
+
 const app = express();
 
-// app.use(express.json())
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-// // Routes import
+// app.use("/grphql", graphqlHttp({
+//     schema,
+//     pretty: true,
+//     graphiql: true,
+// }))
 
-// // const product = require("./routes/productRoute");
 
-// app.get("/", (request, response) => {
-//     response.send("Hi there");
-// });
+app.use('/user', userRoute);
+app.get('/healthcheck', async(req,res) => {
+    res.send({
+        status: 'ok',
+        service: 'ETL',
+    })
+});
 
-// app.listen(9000, () => {
-//     console.log("Listen on the port 9000...");
-// });
 
-// // app.use("/api/v1/", product)
 
 export default app;

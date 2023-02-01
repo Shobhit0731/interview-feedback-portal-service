@@ -1,47 +1,20 @@
 import express from "express";
-const router = express.Router();
-import mongoose from "mongoose";
-import User from '../modelSchema/user.js';
-import bcrypt from './bcrypt';
+import UserController from "../controller/UserController.js";
+import userSchema from "../controller/UserController.js"
+import { nameValidator, emailValidator, passwordValidator} from "../middleware/Validation.js";
+
+const userRoute = express.Router();
 
 
-router.get('/', (req, res, next) =>{
-  bcrypt.hash(req.body.password, 10, (err, hash)=>{
-      if(err)
-      {
-          return res.status(500).json({
-              err: err
-          })
-      }
-      else
-      {
-          const user = new User({
-            _id: mongoose.Schema.Types.ObjectId,
-            name: req.body.name,
-            password: hash,
-            email: req.body.email,
-          })
-          user.save()
-          .then(result =>{
-           res.status(200).json({
-               new_user: result
-           })
-          })
-          .catch(err=>{
-              res.status(500).json({
-                  error: err
-              })
-          })
-      }
-  })
-})
+userRoute.post("/login", emailValidator, UserController.loginuser);
 
 
+userRoute.post("/signup", nameValidator, emailValidator, passwordValidator, UserController.signupuser);
 
+userRoute.put("/reset-password", emailValidator, passwordValidator, UserController.reset_password);
 
+userRoute.post("/add-candidate", UserController.add_candidate);
 
+userRoute.get("/fetch-candidate", UserController.fetch_candidates);
 
-
-
-
-module.exports = router;
+export default userRoute;
